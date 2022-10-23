@@ -29,17 +29,19 @@ public class main {
         char density[] = " _.,-=+:;cba!?0123456789$W#@Ñ".toCharArray();
         final int dLength = density.length;
         final int dStep = (int)256 / dLength + 1;
+        final String win_regex = "([a-zA-Z]:)?(\\\\[a-z  A-Z0-9_.-]+)+.(txt|gif|jpg|png|jpeg|pdf|doc|docx|xls|xlsx|DMS)\\\\?";
+        final String linux_regex = "^(/[^/]*)+.(txt|gif|jpg|png|jpeg|pdf|doc|docx|xls|xlsx|DMS)/?$";
 
         //Ask for image
         Scanner in = new Scanner(System.in);
-        System.out.println("Please put an image inside of the images folder and provide its name:");
+        System.out.println("Please put an image inside of the images folder and provide its name or provide the full image path:");
         String imgName = in.nextLine();
 
         in.close();
 
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("./images/" + imgName));
+            img = ImageIO.read(new File(imgName.matches(win_regex) || imgName.matches(linux_regex) ? imgName : "./images/" + imgName));
         } catch (IOException e) {
             System.out.println("Couldn't read file");
         }
