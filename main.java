@@ -45,7 +45,7 @@ public class main {
         System.out.println("Please put an image inside of the images folder and provide its name or provide the full image path:");
         String imgName = in.nextLine();
 
-        System.out.println("Please choose the dimensions you want your image to be (e.g. 500 for a max of 500x500. The Scale of the image wont change) or enter nothing to keep the original size:");
+        System.out.println("Please choose the dimensions you want your image to be (e.g. 500 for a max of 500x500(pixels). The Scale of the image wont change) or enter nothing to keep the original size:");
         int size = in.nextLine() != "" ? Integer.parseInt(in.nextLine()) : 0;
 
         in.close();
