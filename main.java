@@ -46,7 +46,9 @@ public class main {
         String imgName = in.nextLine();
 
         System.out.println("Please choose the dimensions you want your image to be (e.g. 500 for a max of 500x500(pixels). The Scale of the image wont change) or enter nothing to keep the original size:");
-        int size = in.nextLine() != "" ? Integer.parseInt(in.nextLine()) : 0;
+        String imgSize = in.nextLine();
+
+        int size = imgSize != "" ? Integer.parseInt(imgSize) : 0;
 
         in.close();
 
@@ -56,6 +58,8 @@ public class main {
         } catch (IOException e) {
             System.out.println("Couldn't read file");
         }
+
+        System.out.println("Size: " + size);
 
         if(size != 0) {
             img = resizeImage(img, size, size);
