@@ -63,13 +63,11 @@ public class main {
 
         int[][] imgRGB = pixelBrightness(img); //Pixel Brightnessvalues
 
-        System.out.println(256 / dStep);
-
         //Print the ASCII Art by mapping the density string to the brightness
         for(int row = 0; row < imgRGB.length; row++) {
             for(int col = 0; col < imgRGB[row].length; col++) {
                 System.out.print(density[(int) imgRGB[row][col] / dStep]);
-                for(int i = 0; i < dStep/6; i++) {
+                for(int i = 0; i < dStep/4; i++) {
                     System.out.print(" ");
                 }
             }
